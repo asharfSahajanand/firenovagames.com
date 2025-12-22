@@ -11,25 +11,33 @@
     <title>Free Hot New Games| gamecenter7.com</title>    <link rel="shortcut icon" href="static/index/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="static/index/font/iconfont.css">
     <link rel="stylesheet" type="text/css"
-          href="./cookieconsent.min.css"/>
-    <link rel="stylesheet" href="./layui.min.css"
+          href="cookieconsent.min.css"/>
+    <link rel="stylesheet" href="layui.min.css"
           integrity="sha512-o+g1fl6FWuY42UXwVvA8Dk9C8OoU/DKSJjKTpjh2QWu2OXIYZlRNC3lu7iaIsCxa9oSv6KSLmk4R4QH8ujP0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="./swiper.min.js"
+    <link rel="stylesheet" href="swiper.min.css"
           integrity="sha512-uCQmAoax6aJTxC03VlH0uCEtE0iLi83TW1Qh6VezEZ5Y17rTrIE+8irz4H4ehM7Fbfbm8rb30OkxVkuwhXxrRg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <link rel="stylesheet" href="static/index/css/main.css">
     <script src="static/index/font/iconfont.js"></script>
     <script src="static/index/js/jquery.min.js"></script>
-    <script src="./layui.all.min.js"
+    <script src="layui.all.min.js"
             integrity="sha512-DydCfg0OjmdfkZyNIFcx2IpORrBIRWGnNg+2PgLGVHwchp6qCbr12MnrRlI73Gsf0zqvib8sWi7lTsAhY1Ywfw=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src=""
             integrity="sha512-PYqZh14FSExDb67jbM60M4ri5A/Bn/xOiM1ihfPx7c1d8XywMmn2M7+Z4i+v9RF9dlzRYzqk7sXamAHKZjfyFA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script async src="../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
-    
+  <script src="lazyload.min.js"></script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  new LazyLoad({
+    elements_selector: ".lazy",
+    threshold: 300
+  });
+});
+</script>
     <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function () {
@@ -119,7 +127,7 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
-<script src="./cookieconsent.min.js" data-cfasync="false"></script>
+<script src="cookieconsent.min.js" data-cfasync="false"></script>
 <script>
     window.cookieconsent.initialise({
         "palette": {
@@ -262,14 +270,24 @@
         <a href="more/1.html">More ></a>
     </div>
     <div class="swiper_box">
-        <div class="swiper-wrapper">
-                        <a class="swiper-slide" href="games/archero.html">
-                <div class="thum"><img src="uploads/attach/2025/07/20250714/ec82715fb241ce4603f84887012e36d6.jpg" alt=""></div>
+       <div class="swiper-wrapper"
+     style="
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+     ">
+                        <a class="swiper-slide" href="games/roblox.html">
+                <div class="thum"><img src="uploads/attach/2023/03/20230302/1ddce9503ab56e68c088cb4bcd2d1fd5.png"
+                     alt=""></div>
                 <div class="buttom">
-                    <div class="thum"><img class="lazy" src="static/index/img/default.png" data-src="uploads/attach/2025/07/20250714/ec82715fb241ce4603f84887012e36d6.jpg"
+                    <div class="thum"><img class="lazy" src="static/index/img/default.png" data-src="uploads/attach/2023/03/20230302/1ddce9503ab56e68c088cb4bcd2d1fd5.png"
                                            alt=""></div>
                     <dl>
-                        <dt>Archero</dt>
+                        <dt>Roblox</dt>
                         <dd>5 <i class="iconfont icon-xing"></i></dd>
                     </dl>
                     <span><i class="iconfont icon-youjiantou"></i></span>
@@ -488,7 +506,16 @@
         <a href="more/3.html">More ></a>
     </div>
     <div class="swiper_box_2">
-        <div class="swiper-wrapper">
+       <div class="swiper-wrapper"
+     style="
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+     ">
                         <a class="swiper-slide" href="games/papas_freezeria_to_go.html">
                 <div class="thum"><img src="uploads/attach/2023/03/20230310/752b6ba424b7f69559750b44eb8796b7.png" alt=""></div>
                 <div class="buttom">
@@ -549,7 +576,7 @@
                 <li>
             <a href="games/archero.html">
                 <div class="thum"><img class="lazy" src="static/index/img/default.png" data-src="uploads/attach/2025/07/20250714/ec82715fb241ce4603f84887012e36d6.jpg"
-                                       alt=""></div>
+               alt=""></div>
                 <dl>
                     <dt>Archero</dt>
                     <dd>5 <i class="iconfont icon-xing"></i></dd>
@@ -739,13 +766,13 @@
 <div id="search_mask">
     <div class="search_main"></div>
 </div>
-<script src="./fastclick.min.js"
+<script src="fastclick.min.js"
         integrity="sha512-qH+R6YL4/40iiIrnN5aNZ1sEeEalNAdnzP9jfsxFPBdIslTkwUddkSazjVWhJ3f/3Y26QF6aql0xeneuVw0h/Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./lodash.min.js"
+<script src="lodash.min.js"
         integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./swiper.min.js"
+<script src="swiper.min.js"
         integrity="sha512-VHsNaV1C4XbgKSc2O0rZDmkUOhMKPg/rIi8abX9qTaVDzVJnrDGHFnLnCnuPmZ3cNi1nQJm+fzJtBbZU9yRCww=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="static/index/js/main.js"></script>

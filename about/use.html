@@ -28,8 +28,17 @@
     <script src=".././lazyload.min.js"
             integrity="sha512-PYqZh14FSExDb67jbM60M4ri5A/Bn/xOiM1ihfPx7c1d8XywMmn2M7+Z4i+v9RF9dlzRYzqk7sXamAHKZjfyFA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script async src="../../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
+     <script async src="../../securepubads.g.doubleclick.net/tag/js/f.txt"></script>
+  
+     <script src=".././lazyload.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  new LazyLoad({
+    elements_selector: ".lazy",
+    threshold: 300
+  });
+});
+</script>    <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function () {
             var slot = googletag.defineOutOfPageSlot('/23316933318/Kanizaa.com_d1', googletag.enums.OutOfPageFormat.INTERSTITIAL);
