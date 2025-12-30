@@ -43,16 +43,12 @@
 
 <script>
   window.googletag = window.googletag || { cmd: [] };
-  var interstitialSlot;
-  var interstitialShown = false;
+  let interstitialSlot;
 
-  googletag.cmd.push(function () {
-
-    // session control
-    if (sessionStorage.getItem("interstitialShown")) return;
-
+  googletag.cmd.push(() => {
+    // ✅ Define interstitial slot
     interstitialSlot = googletag.defineOutOfPageSlot(
-      "/23330730517/gamecenter7.com_inter",
+      '/23330730517/gamecenter7.com_inter',
       googletag.enums.OutOfPageFormat.INTERSTITIAL
     );
 
@@ -60,46 +56,60 @@
       interstitialSlot.addService(googletag.pubads());
     }
 
-    googletag.pubads().enableSingleRequest();
     googletag.enableServices();
+
+    // ✅ Preload the interstitial ad immediately after page load
+    if (interstitialSlot) {
+      googletag.display(interstitialSlot);
+    }
   });
 
-  // USER INTERACTION TRIGGER (BEST PRACTICE)
-  document.addEventListener("click", function () {
-    if (interstitialShown || !interstitialSlot) return;
-
-    interstitialShown = true;
-    sessionStorage.setItem("interstitialShown", "1");
-
-    googletag.cmd.push(function () {
-      googletag.display(interstitialSlot);
+  // ✅ Function to show interstitial and then call callback
+  function showInterstitialAd(callback) {
+    googletag.cmd.push(() => {
+      if (interstitialSlot) {
+        googletag.pubads().display(interstitialSlot);
+      }
+      // ⏳ Fast fallback: max wait 500ms
+      setTimeout(() => {
+        if (typeof callback === 'function') callback();
+      }, 500);
     });
-
-  }, { once: true });
+  }
 </script>
 
-    <!-- Google Tag Manager -->
+
+    <style>
+      #link {
+        display: none;
+      }
+
+      div.content {
+        position: fixed;
+        top: 50%;
+      }
+    </style>
+
     <!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17793220941"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17827934719"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-17793220941');
-</script> -->
-<!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ48MKMRDX"></script>
+  gtag('config', 'AW-17827934719');
+</script> 
+    <!-- Google tag (gtag.js) -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCPL6QRMN1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-LJ48MKMRDX');
-</script> -->
+  gtag('config', 'G-JCPL6QRMN1');
+</script> 
 
-    <!-- Event snippet for 网页浏览 (1) conversion page -->
- <!-- <script type="text/javascript">
+ <script type="text/javascript">
         function reward(event, url, type) {
             document.querySelector(".body-loading").style.display = "flex";
             setTimeout(function () {
@@ -126,11 +136,12 @@
 
 
            try {
-                gtag('event', 'conversion', { 'send_to': 'AW-17793220941/jSWYCKfk49IbEM2CvKRC'});
+                gtag('event', 'conversion', { 'send_to': 'AW-17827934719/GHfrCI2p89YbEP_jgrVC'});
             } catch (e) {
                 console.log(e);
             }                                                                      }
-    </script>      -->     
+    </script>      
+
 
     <script>
         var layRate = null;
