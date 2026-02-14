@@ -44,6 +44,60 @@
   });
 </script>
 
+    <script>
+        (function () {
+            function createInterstitialIfNeeded() {
+                if (document.getElementById('gpt-interstitial-overlay')) return;
+                var css = '\n        #gpt-interstitial-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:999999;}\n        #gpt-interstitial{max-width:420px;width:92%;background:#111;border-radius:12px;padding:12px;box-shadow:0 8px 30px rgba(0,0,0,.6);display:flex;flex-direction:column;align-items:center;}\n        #gpt-interstitial .ad-slot{width:100%;height:320px;display:block;background:#000;}\n        #gpt-interstitial .controls{margin-top:8px;width:100%;display:flex;justify-content:space-between;gap:8px;}\n        #gpt-interstitial button{flex:1;padding:10px;border-radius:8px;border:0;font-weight:700;}\n      ';
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.appendChild(document.createTextNode(css));
+                document.head.appendChild(style);
+
+                var overlay = document.createElement('div');
+                overlay.id = 'gpt-interstitial-overlay';
+                overlay.style.display = 'none';
+
+                overlay.innerHTML = '\n        <div id="gpt-interstitial">\n          <div id="div-gpt-ad-1770809663664-0" class="ad-slot"></div>\n          <div class="controls">\n            <button id="gpt-skip">Close</button>\n            <button id="gpt-continue">Continue</button>\n          </div>\n        </div>\n      ';
+
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) { overlay.style.display = 'none'; }
+                });
+
+                document.body.appendChild(overlay);
+
+                document.getElementById('gpt-skip').addEventListener('click', function () {
+                    overlay.style.display = 'none';
+                });
+
+                document.getElementById('gpt-continue').addEventListener('click', function () {
+                    var dest = overlay.getAttribute('data-dest');
+                    overlay.style.display = 'none';
+                    if (dest) window.location.href = dest;
+                });
+            }
+
+            function showInterstitialForHref(href) {
+                createInterstitialIfNeeded();
+                var overlay = document.getElementById('gpt-interstitial-overlay');
+                overlay.setAttribute('data-dest', href);
+                overlay.style.display = 'flex';
+                try {
+                    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1770809663664-0'); });
+                } catch (e) { /* ignore if GPT not ready */ }
+            }
+
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest && e.target.closest('a.game-link');
+                if (a) {
+                    e.preventDefault();
+                    var href = a.href || a.getAttribute('href');
+                    showInterstitialForHref(href);
+                }
+            }, true);
+        })();
+    </script>
+
 
     <style>
       #link {
