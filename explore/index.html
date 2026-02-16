@@ -67,7 +67,9 @@
                 document.body.appendChild(overlay);
 
                 document.getElementById('gpt-skip').addEventListener('click', function () {
+                    var dest = overlay.getAttribute('data-dest');
                     overlay.style.display = 'none';
+                    if (dest) window.location.href = dest;
                 });
 
                 document.getElementById('gpt-continue').addEventListener('click', function () {
